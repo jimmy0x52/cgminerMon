@@ -1,3 +1,27 @@
+WHAT IS CGMINERMON
+===================================================
+cgminerMon is a web-based monitoring dashboard for watching your cgminers. It requires no modification to existing firewall rules, special network configuration, or otherwise risky behavior with your precious cgminer instances.
+
+Utilizing Amazon S3 - cgminer exchanges data with datafiles that are uploaded and downloaded to S3. This allows you to have an unlimited number of miners uploading data, and an unlimited number of dashboards with access to this data. None of the dashboards have to have access to your miners, and none of your miners have access to your dashboards.
+
+Example:
+Mom and Dad don't use their computer much. You can setup cgminer on their machine to run overnight. When it's running, you can have their machine upload monitor data to your S3 bucket. Then, you can monitor it all without ever needing to touch a router or port or VPN.
+
+Another example:
+You're mining with a bunch of friends, and you all want to watch eachother's data. You can install remote_monitor on everyone machine to upload to a shared bucket, and then all install the dashboard to monitor this bucket. No one has access to anyone's credentials, hardware or passwords but you can have fun watching eachother's hashrates and mined doge!
+
+SETTING UP YOUR DASHBOARD
+===================================================
+You'll need an apache webserver with php installed. Check this entire project to the webserver, delete remote_monitor, follow the below instructions to configure includes/config.php, and load up the URL. 
+
+The dashboard will do the following every time you reload the page:
+
+- Update market data in the dropdown tab at the top
+- Update your total doges
+- Update your miner data from Amazon S3
+
+In addition, the dashboard will refresh just your miner data from Amazon S3 every 5 minutes without reloading the page 
+
 SETTING UP YOUR DATA EXCHANGE
 ===================================================
 cgminerMon is unique in that it requires no direct connection between miner and dashboard. It uses an intermediary to house the data and periodically retreives it to be displayed.
@@ -51,17 +75,6 @@ Next, you'll need to setup the monitor to upload miner data from your miners. To
 
 Each time it's executed, it will gather all the API data from your miner and upload it to your S3 bucket under the filename of MINERNAME.data (where MINERNAME is the name specified at the top of the remote_monitor/config.php file).
 
-SETTING UP YOUR DASHBOARD
-===================================================
-You'll need an apache webserver with php installed. Copy this whole directory to the webserver, and load up the URL. 
-
-The dashboard will do the following every time you reload the page:
-
-- Update market data in the dropdown tab at the top
-- Update your total doges
-- Update your miner data from Amazon S3
-
-In addition, the dashboard will refresh just your miner data from Amazon S3 every 5 minutes without reloading the page 
 
 CREDITS
 ===================================================
