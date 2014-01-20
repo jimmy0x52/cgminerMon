@@ -6,6 +6,12 @@ Doge: DBogcnz5fNpAePHc2qbj9Z2KxvBzoaRhm7
 
 SCREENSHOT: http://i.imgur.com/XbB9fBA.png
 
+One more thing before we get into it:
+
+This uses Amazon S3's PHP SDK. It's located in /aws and /remote_monitor/aws
+
+Feel free to delete this and download a fresh copy from amazon if you're nervous about it. It's unedited from Amazon.
+
 WHAT IS CGMINERMON
 ===================================================
 cgminerMon is a web-based monitoring dashboard for watching your cgminers. It requires no modification to existing firewall rules, special network configuration, or otherwise risky behavior with your precious cgminer instances.
