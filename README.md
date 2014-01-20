@@ -1,3 +1,11 @@
+Useful? I accept tips:
+
+BTC: 12TVzXjhRzv8PY7Hmfn5f2A7QKeYQaHFz9
+
+Doge: DBogcnz5fNpAePHc2qbj9Z2KxvBzoaRhm7
+
+SCREENSHOT: http://i.imgur.com/XbB9fBA.png
+
 WHAT IS CGMINERMON
 ===================================================
 cgminerMon is a web-based monitoring dashboard for watching your cgminers. It requires no modification to existing firewall rules, special network configuration, or otherwise risky behavior with your precious cgminer instances.
@@ -5,9 +13,11 @@ cgminerMon is a web-based monitoring dashboard for watching your cgminers. It re
 Utilizing Amazon S3 - cgminer exchanges data with datafiles that are uploaded and downloaded to S3. This allows you to have an unlimited number of miners uploading data, and an unlimited number of dashboards with access to this data. None of the dashboards have to have access to your miners, and none of your miners have access to your dashboards.
 
 Example:
+
 Mom and Dad don't use their computer much. You can setup cgminer on their machine to run overnight. When it's running, you can have their machine upload monitor data to your S3 bucket. Then, you can monitor it all without ever needing to touch a router or port or VPN.
 
 Another example:
+
 You're mining with a bunch of friends, and you all want to watch eachother's data. You can install remote_monitor on everyone machine to upload to a shared bucket, and then all install the dashboard to monitor this bucket. No one has access to anyone's credentials, hardware or passwords but you can have fun watching eachother's hashrates and mined doge!
 
 SETTING UP YOUR DASHBOARD
@@ -41,6 +51,7 @@ To setup your bucket:
 - Click Attach User Policy / Custom Policy / Select
 - Give your policy a name (it doesn't matter) and then paste the policy below. This allows this user to access your newly created bucket. (Note: replace BUCKET_NAME in the below with your bucket name from the first step.)
 
+```
 {
   "Statement": [
     {
@@ -63,13 +74,17 @@ To setup your bucket:
     }
   ]
 }  
+```
 
 SETTING UP YOUR MINERS
 ===================================================
 First, you'll need to allow API access for any miner. To do that, add the following to your cgminer.conf:
+
+```
 "api-port" : "4001",
 "api-listen" : true,
 "api-allow" : "127.0.0.1"
+```
 
 Next, you'll need to setup the monitor to upload miner data from your miners. To do this, You'll need to copy the remote_monitor/ folder to your miner. Edit config.php and setup your variables/access keys for Amazon S3. Once this is complete, you'll have to setup a cron or scheduled task to run monitor.php on a regular schedule (I'd suggest at least every 5-10 minutes). 
 
