@@ -1,21 +1,10 @@
 <?php
 include_once ('config.php');
 include_once ('gatherMinerData.php');
+include_once ('functions.inc.php');
 
 $nr_rigs = count($miners);
 
-for ($i=0; $i<$nr_rigs; $i++)
-{
-	$miners[$i]['summary'] = request('summary', $miners[$i]['ip'], $miners[$i]['port']);
-	if ($miners[$i]['summary'] != null)
-	{
-		$miners[$i]['devs']  = request('devs',  $miners[$i]['ip'], $miners[$i]['port']);
-		$miners[$i]['stats'] = request('stats', $miners[$i]['ip'], $miners[$i]['port']);
-		$miners[$i]['pools'] = SHOW_POOLS ? request('pools', $miners[$i]['ip'], $miners[$i]['port']) : FALSE;
-		$miners[$i]['coin']  = request('coin',  $miners[$i]['ip'], $miners[$i]['port']);
-	
-	}
-}
 ?>
 
 <div class="row">
