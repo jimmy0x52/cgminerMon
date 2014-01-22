@@ -1,10 +1,9 @@
 <?php
+
 include_once ('config.php');
 include_once ('gatherMinerData.php');
 include_once ('functions.inc.php');
-
 $nr_rigs = count($miners);
-
 ?>
 
 <div class="row">

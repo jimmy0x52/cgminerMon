@@ -35,15 +35,18 @@ define("DOGE_WALLETS","walletaddress1,walletaddress2");
 # MONITORED MARKET ID'S #
 ------------------------*/
 
-// Cryptsy market ID's to monitor
-// Find the market ID by going to a cryptsy market and looking at the number at the end of the URL
-// For example: https://www.cryptsy.com/markets/view/132
+// Markets to monitor using Vircurex
+$monitoredMarkets[0]['marketname'] = 'DOGE/USD'; //DOGE/BTC
+$monitoredMarkets[0]['base'] = 'DOGE'; //DOGE/BTC
+$monitoredMarkets[0]['alt'] = 'USD'; //DOGE/BTC
 
-$monitoredMarkets[0]['marketid'] = '132'; //DOGE/BTC
-$monitoredMarkets[0]['marketname'] = 'DOGE'; //DOGE/BTC
+$monitoredMarkets[1]['marketname'] = 'DOGE/BTC'; //DOGE/BTC
+$monitoredMarkets[1]['base'] = 'DOGE'; //DOGE/BTC
+$monitoredMarkets[1]['alt'] = 'BTC'; //DOGE/BTC
 
-$monitoredMarkets[1]['marketid'] = '3'; //LTC/BTC
-$monitoredMarkets[1]['marketname'] = 'LTC'; //LTC/BTC
+$monitoredMarkets[2]['marketname'] = 'BTC/USD'; //LTC/BTC
+$monitoredMarkets[2]['base'] = 'BTC'; //DOGE/BTC
+$monitoredMarkets[2]['alt'] = 'USD'; //DOGE/BTC
 
 /*#####################################################################################*/
 /*# DO NOT EDIT BELOW THIS LINE #######################################################*/
